@@ -1,5 +1,10 @@
 # UHF Server - Changelog
 
+## 1.1.0
+
+- Fixed macOS permissions issue.
+- Improved performance while recording a stream.
+
 ## 1.0.0
 
 - Initial release.
