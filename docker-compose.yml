@@ -1,0 +1,16 @@
+services:
+  uhf-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: uhf-server
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    volumes:
+      - ${RECORDINGS_DIR:-./recordings}:/recordings
+    environment:
+      - PORT=${PORT:-8000}
+      - PASSWORD=${PASSWORD:-} # Optional password protection
+    command: uhf-server --port ${PORT:-8000} --recordings-dir /recordings ${PASSWORD:+--password ${PASSWORD}}
+    stop_grace_period: 30s
