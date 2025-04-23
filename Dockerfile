@@ -36,4 +36,4 @@ HEALTHCHECK --interval=60s --timeout=10s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/server/stats || exit 1
 
 # Default command
-CMD ["uhf-server"]
+CMD ["bash"]
