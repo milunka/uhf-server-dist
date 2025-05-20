@@ -1,5 +1,13 @@
 # UHF Server - Changelog
 
+## 1.3.0
+
+- The GUI for Windows and macOS now includes an option to automatically launch the server at system startup.
+- Improved error reporting when starting the server in the Windows and macOS apps.
+- The server now starts automatically when launching the Windows and macOS apps.
+- Recordings now use the program name and date as the file name.
+- Fixed a performance issue in the server that caused degraded performance when multiple recordings finished.
+
 ## 1.2.0
 
 - The GUI for Windows and macOS now display the IP address the server is running on.
