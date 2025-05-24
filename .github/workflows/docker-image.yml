@@ -15,4 +15,15 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag uhf-server:latest
+    - name: Log in to GitHub Container Registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Tag image for GitHub Container Registry
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository }}:latest
+        docker tag uhf-server:latest $IMAGE_ID
+    - name: Push image to GitHub Container Registry
+      run: |
+        IMAGE_ID=ghcr.io/${{ github.repository }}:latest
+        docker push $IMAGE_ID
