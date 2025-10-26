@@ -4,11 +4,12 @@ FROM ubuntu:25.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install required dependencies
-RUN apt-get update && apt-get install -y \
-    curl \
-    ffmpeg \
-    unzip \
-    ca-certificates \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates git curl bash unzip ffmpeg \
+        build-essential autoconf automake libtool \
+        libargtable2-dev pkg-config libsdl2-dev \
+        libavcodec-dev libavformat-dev libavfilter-dev libavutil-dev \
+        libavdevice-dev libjansson-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
